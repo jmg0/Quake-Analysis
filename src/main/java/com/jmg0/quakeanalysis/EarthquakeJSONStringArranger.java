@@ -10,7 +10,9 @@ public class EarthquakeJSONStringArranger {
      * @return
      */
     public String[] stringArranger(String earthquakeDataJSON) {
-
+        String[] JSONStrings = earthquakeDataJSON.split(",\"features\":");
+        String metadata = JSONStrings[0];
+        String earthquakesAsFeatures = JSONStrings[1].split(",\"bbox")[0];
     }
 
 }
