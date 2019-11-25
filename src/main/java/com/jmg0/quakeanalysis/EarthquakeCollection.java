@@ -2,6 +2,7 @@ package com.jmg0.quakeanalysis;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.util.ArrayList;
@@ -35,6 +36,7 @@ public class EarthquakeCollection {
     public void setEarthquakesFromJSONString(String JSONString) {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
             this.earthquakes = objectMapper.readValue(JSONString, new TypeReference<ArrayList<Earthquake>>(){});
         }
         catch (Exception e) {
@@ -64,4 +66,17 @@ public class EarthquakeCollection {
         this.url = (String) metadata.get("url");
         this.numEarthquakes = (int) metadata.get("count");
     }
+
+    public void printEarthquakeInfo() {
+        printEarthquakeCollectionInfo();
+        for(Earthquake earthquake : earthquakes) {
+            System.out.println(earthquake.quakeInfo());
+        }
+    }
+
+    public void printEarthquakeCollectionInfo() {
+        System.out.println("This " + getTitle() + " list comes from " + getUrl() + " and contains " + getNumEarthquakes() + " earthquakes.");
+    }
+
+
 }

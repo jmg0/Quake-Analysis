@@ -21,12 +21,7 @@ public class Earthquake {
     }
 
     public void setMag(String mag) {
-        if(doubleOrInt(mag)) {
-            this.mag = Double.parseDouble(mag);
-        }
-        else {
-            this.mag = Integer.parseInt(mag);
-        }
+        this.mag = Double.parseDouble(mag);
     }
 
     public void setPlace(String place) {
@@ -57,34 +52,21 @@ public class Earthquake {
         return place;
     }
 
-    /**
-     * Requires: numericString must be a String that can be converted either to double or int
-     * @param numericString
-     * @return
-     */
-    private boolean doubleOrInt(String numericString) {
-        try {
-            Double.parseDouble(numericString);
-            return true;
-        }
-        catch (Exception e) {
-            return false;
-        }
-    }
-
     @JsonProperty("properties")
     private void unpackProperties(Map<String, Object> properties) {
-        Object magObject = properties.get("mag");
-        String magString = (String) magObject;
-        if(doubleOrInt(magString)) {
-            this.mag = (double) magObject;
+        try {
+            this.mag = (double) properties.get("mag");
         }
-        else {
-            this.mag = (int) magObject;
+        catch (Exception e) {
+            this.mag = (int) properties.get("mag");
         }
         this.place = (String) properties.get("place");
         this.time = (Long) properties.get("time");
         this.title = (String) properties.get("title");
+    }
+
+    public String quakeInfo() {
+        return (getTitle() + ": a " + getMag() + " magnitude earthquake occurred in " + getPlace() + " at " + getTime());
     }
 
 }

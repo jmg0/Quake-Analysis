@@ -11,7 +11,7 @@ public class EarthquakeJSONStringArranger {
      */
     public String[] JSONStringArranger(String earthquakeDataJSON) {
         String[] JSONStrings = earthquakeDataJSON.split(",\"features\":");
-        String metadata = JSONStrings[0];
+        String metadata = JSONStrings[0] + "}";
         String earthquakesAsFeatures = JSONStrings[1].split(",\"bbox")[0];
         return new String[]{metadata, earthquakesAsFeatures};
     }

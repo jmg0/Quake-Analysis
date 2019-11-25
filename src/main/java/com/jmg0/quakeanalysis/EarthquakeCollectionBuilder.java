@@ -1,5 +1,6 @@
 package com.jmg0.quakeanalysis;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public abstract class EarthquakeCollectionBuilder {
@@ -12,10 +13,11 @@ public abstract class EarthquakeCollectionBuilder {
     public static EarthquakeCollection build(String url) {
         EarthquakeCollection earthquakeCollection = new EarthquakeCollection();
         EarthquakeJSONStringArranger arranger = new EarthquakeJSONStringArranger();
-        String[] JSONStrings;
-        ObjectMapper objectMapper = new ObjectMapper();
 
-        JSONStrings = arranger.JSONStringArranger(ReadFileFromURL.readFileFromURLIntoString(url));
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+
+        String[] JSONStrings = arranger.JSONStringArranger(ReadFileFromURL.readFileFromURLIntoString(url));
 
         try {
             earthquakeCollection = objectMapper.readValue(JSONStrings[0], EarthquakeCollection.class);
