@@ -1,6 +1,7 @@
-com/jmg0/quakeanalysis/EarthquakeCollection.class
 com/jmg0/quakeanalysis/EarthquakeJSONStringArranger.class
 com/jmg0/quakeanalysis/ReadFileFromURL.class
+com/jmg0/quakeanalysis/Earthquake.class
+com/jmg0/quakeanalysis/EarthquakeCollection.class
+com/jmg0/quakeanalysis/EarthquakeCollection$1.class
 com/jmg0/quakeanalysis/App.class
 com/jmg0/quakeanalysis/Filter.class
-com/jmg0/quakeanalysis/Earthquake.class

@@ -13,7 +13,7 @@ public abstract class ReadFileFromURL {
      * Requires urlString be a valid url from https://earthquake.usgs.gov
      * @param urlString
      */
-    public static BufferedReader openFileFromURL(String urlString) {
+    private static BufferedReader openFileFromURL(String urlString) {
         try {
             URL url = new URL(urlString);
             URLConnection urlConnected = url.openConnection();
@@ -31,11 +31,12 @@ public abstract class ReadFileFromURL {
     }
 
     /**
-     * Requires urlReader be a functioning BufferedReader
-     * @param urlReader
+     * Requires url be a valid url from https://earthquake.usgs.gov
+     * @param url
      * @return
      */
-    public static String readFileIntoString(BufferedReader urlReader) {
+    public static String readFileFromURLIntoString(String url) {
+        BufferedReader urlReader = openFileFromURL(url);
         String nextLine;
         StringBuilder JSONString = new StringBuilder();
         try {

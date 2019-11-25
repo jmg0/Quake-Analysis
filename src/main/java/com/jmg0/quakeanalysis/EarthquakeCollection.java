@@ -1,6 +1,7 @@
 package com.jmg0.quakeanalysis;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.util.ArrayList;
@@ -34,10 +35,7 @@ public class EarthquakeCollection {
     public void setEarthquakesFromJSONString(String JSONString) {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
-            /**
-             * Earthquake[].class is wrong, needs to be 'new TypeReference' just need to look up syntax when connected to internet
-             */
-            //this.earthquakes = objectMapper.readValue(JSONString, Earthquake[].class);
+            this.earthquakes = objectMapper.readValue(JSONString, new TypeReference<ArrayList<Earthquake>>(){});
         }
         catch (Exception e) {
             System.out.println(e.getMessage());
