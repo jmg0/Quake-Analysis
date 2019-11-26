@@ -12,6 +12,7 @@ public class EarthquakeCollection {
     private String title, url;
     private int numEarthquakes;
     private ArrayList<Earthquake> earthquakes;
+    private ArrayList<Earthquake> filteredEarthquakeList;
 
     public void setUrl(String url) {
         this.url = url;
@@ -73,7 +74,7 @@ public class EarthquakeCollection {
      * @return
      */
     public ArrayList<Earthquake> filter(Filter filter) {
-        ArrayList<Earthquake> filteredEarthquakeList = new ArrayList<>();
+        filteredEarthquakeList = new ArrayList<>();
         for( Earthquake e : earthquakes ) {
             if(filter.satisfies(e)) {
                 filteredEarthquakeList.add(e);
@@ -82,19 +83,27 @@ public class EarthquakeCollection {
         return filteredEarthquakeList;
     }
 
-    public void printEarthquakeInfo() {
-        printEarthquakeCollectionInfo();
-        for(Earthquake earthquake : earthquakes) {
+    public void printEarthquakes(ArrayList<Earthquake> earthquakes) {
+        for(Earthquake earthquake: earthquakes) {
             System.out.println(earthquake.quakeInfo());
         }
+    }
+
+    public void printEarthquakeInfo() {
+        printEarthquakeCollectionInfo();
+        printEarthquakes(earthquakes);
     }
 
     public void printEarthquakeCollectionInfo() {
         System.out.println("This " + getTitle() + " list comes from " + getUrl() + " and contains " + getNumEarthquakes() + " earthquakes.");
     }
 
+    /**
+     * Requires filter() has been called
+     */
     public void printFilteredEarthquakeInfo() {
-        
+        System.out.println("This " + getTitle() + "list has been filtered and contains " + filteredEarthquakeList.size() + " earthquakes.");
+        printEarthquakes(filteredEarthquakeList);
     }
 
 

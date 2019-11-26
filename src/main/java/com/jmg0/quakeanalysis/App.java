@@ -10,9 +10,15 @@ public class App {
 
     public static void main(String[] args) {
 
-        // 84 quakes
+        // 84 quakes + MinMagnitude filter
         EarthquakeCollection earthquakeCollection = EarthquakeCollectionBuilder.build("https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&minmagnitude=2&starttime=2019-01-01&endtime=2019-01-02");
         earthquakeCollection.printEarthquakeInfo();
+
+        System.out.println();
+
+        MinMagnitude minMagFilter = new MinMagnitude(4.9);
+        earthquakeCollection.filter(minMagFilter);
+        earthquakeCollection.printFilteredEarthquakeInfo();
 
         // 5513 quakes
         //EarthquakeCollection earthquakeCollection2 = EarthquakeCollectionBuilder.build("https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&minmagnitude=2&starttime=2019-01-01&endtime=2019-03-01");
