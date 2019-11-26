@@ -29,13 +29,6 @@ public class App {
         //earthquakeCollection3.printEarthquakeInfo();
 
 
-//        long time = System.currentTimeMillis();
-//        //long nanoTime = System.nanoTime();
-//        System.out.println(time);
-//        //System.out.println(nanoTime);
-//
-//        Date date = new Date(1559346705510L);
-//        System.out.println(date);
 
 
     }

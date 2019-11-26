@@ -12,6 +12,7 @@ public class Earthquake {
     private long time;
     private String id;
     private String title;
+    private double latitude, longitude, depth;
 
     public void setTitle(String title) {
         this.title = title;
@@ -57,6 +58,31 @@ public class Earthquake {
         return place;
     }
 
+    public double getDepth() {
+        return depth;
+    }
+
+    public void setDepth(double depth) {
+        this.depth = depth;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+
     @JsonProperty("properties")
     private void unpackProperties(Map<String, Object> properties) {
         try {
@@ -70,8 +96,16 @@ public class Earthquake {
         this.title = (String) properties.get("title");
     }
 
+    @JsonProperty("geometry")
+    private void unpackGeometry(Map<String, Object> geometry) {
+        double[] coordinates = (double[]) geometry.get("coordinates");
+        this.longitude = coordinates[0];
+        this.latitude = coordinates[1];
+        this.depth = coordinates[2];
+    }
+
     public String quakeInfo() {
-        return (getTitle() + ": a " + getMag() + " magnitude earthquake occurred " + getDateFromTime() + " at " + getPlace());
+        return (getTitle() + ": a " + getMag() + " magnitude earthquake occurred " + getDateFromTime() + " at " + getPlace() + " coordinates[" + getLatitude() + ", " + getLongitude() + "]");
     }
 
 }
