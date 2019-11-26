@@ -3,6 +3,7 @@ package com.jmg0.quakeanalysis;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.io.InputStream;
+import java.util.Date;
 import java.util.Map;
 
 public class Earthquake {
@@ -48,6 +49,10 @@ public class Earthquake {
         return time;
     }
 
+    public Date getDateFromTime() {
+        return new Date(getTime());
+    }
+
     public String getPlace() {
         return place;
     }
@@ -66,7 +71,7 @@ public class Earthquake {
     }
 
     public String quakeInfo() {
-        return (getTitle() + ": a " + getMag() + " magnitude earthquake occurred in " + getPlace() + " at " + getTime());
+        return (getTitle() + ": a " + getMag() + " magnitude earthquake occurred " + getDateFromTime() + " at " + getPlace());
     }
 
 }

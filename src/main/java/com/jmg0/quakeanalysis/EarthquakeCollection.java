@@ -67,6 +67,21 @@ public class EarthquakeCollection {
         this.numEarthquakes = (int) metadata.get("count");
     }
 
+    /**
+     * Takes a Filter parameter and returns ArrayList of Earthquake objects that satisfy the Filter
+     * @param filter
+     * @return
+     */
+    public ArrayList<Earthquake> filter(Filter filter) {
+        ArrayList<Earthquake> filteredEarthquakeList = new ArrayList<>();
+        for( Earthquake e : earthquakes ) {
+            if(filter.satisfies(e)) {
+                filteredEarthquakeList.add(e);
+            }
+        }
+        return filteredEarthquakeList;
+    }
+
     public void printEarthquakeInfo() {
         printEarthquakeCollectionInfo();
         for(Earthquake earthquake : earthquakes) {
@@ -76,6 +91,10 @@ public class EarthquakeCollection {
 
     public void printEarthquakeCollectionInfo() {
         System.out.println("This " + getTitle() + " list comes from " + getUrl() + " and contains " + getNumEarthquakes() + " earthquakes.");
+    }
+
+    public void printFilteredEarthquakeInfo() {
+        
     }
 
 
