@@ -3,7 +3,9 @@ package com.jmg0.quakeanalysis;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.io.InputStream;
+import java.lang.reflect.Array;
 import java.util.Date;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Earthquake {
@@ -99,13 +101,14 @@ public class Earthquake {
     @JsonProperty("geometry")
     private void unpackGeometry(Map<String, Object> geometry) {
         double[] coordinates = (double[]) geometry.get("coordinates");
-        this.longitude = coordinates[0];
-        this.latitude = coordinates[1];
-        this.depth = coordinates[2];
+        
+        this.longitude = (double) coordinates[0];
+        this.latitude = (double) coordinates[1];
+        this.depth = (double) coordinates[2];
     }
 
     public String quakeInfo() {
-        return (getTitle() + ": a " + getMag() + " magnitude earthquake occurred " + getDateFromTime() + " at " + getPlace() + " coordinates[" + getLatitude() + ", " + getLongitude() + "]");
+        return (getTitle() + ": a " + getMag() + " magnitude earthquake occurred " + getDateFromTime() + " at " + getPlace() + ", coordinates[" + getLatitude() + ", " + getLongitude() + "]");
     }
 
 }
