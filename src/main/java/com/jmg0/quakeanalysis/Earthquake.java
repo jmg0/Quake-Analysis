@@ -16,6 +16,7 @@ public class Earthquake {
     private String title;
     private double[] coordinates;
     private double latitude, longitude, depth;
+    private Location location;
 
     public void setTitle(String title) {
         this.title = title;
@@ -43,6 +44,15 @@ public class Earthquake {
         setLongitude(this.coordinates[0]);
         setLatitude(this.coordinates[1]);
         setDepth(this.coordinates[2]);
+        setLocation(new Location(getLatitude(), getLongitude()));
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public Location getLocation() {
+        return location;
     }
 
     public double[] getCoordinates() {

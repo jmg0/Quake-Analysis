@@ -32,10 +32,22 @@ public class App {
         EarthquakeCollection earthquakeCollection4 = EarthquakeCollectionBuilder2.build2("https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&minmagnitude=2&starttime=2019-01-01&endtime=2019-01-02");
         earthquakeCollection4.printEarthquakeInfo();
         System.out.println();
+//
+//        MinMagnitude minMagFilter = new MinMagnitude(4.9);
+//        earthquakeCollection4.filter(minMagFilter);
+//        earthquakeCollection4.printFilteredEarthquakeInfo();
 
-        MinMagnitude minMagFilter = new MinMagnitude(4.9);
-        earthquakeCollection4.filter(minMagFilter);
-        earthquakeCollection4.printFilteredEarthquakeInfo();
+//        Location l1 = new Location(-14.95, 167.2922);
+//        Location l2 = new Location(60.6497, -147.438);
+//
+//        System.out.println(l1.distance(l2));
+//        System.out.println(l2.distance(l1));
+//
+//        Location l3 = new Location(-17, 168);
+//        Location l4 = new Location(21, -157);
+//
+//        System.out.println(l3.distance(l4));
+
 
 
     }

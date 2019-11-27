@@ -4,30 +4,30 @@ import java.lang.Math;
 
 
 public class Location {
-    private double latitude, longitude, latInRads, longInRads;
+    private double latitude, longitude;
     private static final double earthMeanRadiusInKM = 6371;
 
     public Location(double latitude, double longitude) {
         this.latitude = latitude;
         this.longitude = longitude;
-        this.latInRads = Math.toRadians(this.latitude);
-        this.longInRads = Math.toRadians(this.longitude);
     }
 
     private double haversineComputation(Location location) {
-        double sinSquaredLatitudeTerm = Math.sin( Math.abs(this.latInRads-location.getLatInRads()) / 2 ) * Math.sin( Math.abs(this.latInRads-location.getLatInRads()) / 2 );
-        double sinSquaredLongitudeTerm = Math.sin( Math.abs(this.longInRads-location.getLongInRads()) / 2 ) * Math.sin( Math.abs(this.longInRads-location.getLongInRads()) / 2 );
-        double a = sinSquaredLatitudeTerm + ( Math.cos(this.latInRads) * Math.cos(location.getLongInRads()) * sinSquaredLongitudeTerm );
+        double phi1 = Math.toRadians(latitude);
+        double phi2 = Math.toRadians(location.getLatitude());
+        double deltaPhi = Math.toRadians(location.getLatitude() - latitude);
+        double deltaLambda = Math.toRadians(location.getLongitude() - longitude);
 
-        return 2 * Math.atan2( Math.sqrt(a), Math.sqrt(1-a));
+        double a = Math.sin(deltaPhi/2) * Math.sin(deltaPhi/2) + Math.cos(phi1) * Math.cos(phi2) * Math.sin(deltaLambda/2) * Math.sin(deltaLambda/2);
+        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+
+        return c;
     }
 
     public double distance(Location location) {
         double c = haversineComputation(location);
-
         return c * earthMeanRadiusInKM;
     }
-
 
     public double getLatitude() {
         return latitude;
@@ -43,21 +43,5 @@ public class Location {
 
     public void setLongitude(double longitude) {
         this.longitude = longitude;
-    }
-
-    public double getLatInRads() {
-        return latInRads;
-    }
-
-    public void setLatInRads(double latInRads) {
-        this.latInRads = latInRads;
-    }
-
-    public double getLongInRads() {
-        return longInRads;
-    }
-
-    public void setLongInRads(double longInRads) {
-        this.longInRads = longInRads;
     }
 }
