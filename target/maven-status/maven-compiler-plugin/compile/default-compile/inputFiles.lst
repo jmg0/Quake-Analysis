@@ -1,7 +1,12 @@
+/Users/jamesgaray/Documents/Computer Science/Classes/Java Programming Principles of Software Design/Quake-Analysis/quakeanalysis/src/main/java/com/jmg0/quakeanalysis/DepthFilter.java
 /Users/jamesgaray/Documents/Computer Science/Classes/Java Programming Principles of Software Design/Quake-Analysis/quakeanalysis/src/main/java/com/jmg0/quakeanalysis/Earthquake.java
+/Users/jamesgaray/Documents/Computer Science/Classes/Java Programming Principles of Software Design/Quake-Analysis/quakeanalysis/src/main/java/com/jmg0/quakeanalysis/MinMagnitude.java
 /Users/jamesgaray/Documents/Computer Science/Classes/Java Programming Principles of Software Design/Quake-Analysis/quakeanalysis/src/main/java/com/jmg0/quakeanalysis/Filter.java
 /Users/jamesgaray/Documents/Computer Science/Classes/Java Programming Principles of Software Design/Quake-Analysis/quakeanalysis/src/main/java/com/jmg0/quakeanalysis/ReadFileFromURL.java
+/Users/jamesgaray/Documents/Computer Science/Classes/Java Programming Principles of Software Design/Quake-Analysis/quakeanalysis/src/main/java/com/jmg0/quakeanalysis/MagnitudeFilter.java
 /Users/jamesgaray/Documents/Computer Science/Classes/Java Programming Principles of Software Design/Quake-Analysis/quakeanalysis/src/main/java/com/jmg0/quakeanalysis/EarthquakeCollectionBuilder.java
+/Users/jamesgaray/Documents/Computer Science/Classes/Java Programming Principles of Software Design/Quake-Analysis/quakeanalysis/src/main/java/com/jmg0/quakeanalysis/EarthquakeCollectionBuilder2.java
 /Users/jamesgaray/Documents/Computer Science/Classes/Java Programming Principles of Software Design/Quake-Analysis/quakeanalysis/src/main/java/com/jmg0/quakeanalysis/App.java
 /Users/jamesgaray/Documents/Computer Science/Classes/Java Programming Principles of Software Design/Quake-Analysis/quakeanalysis/src/main/java/com/jmg0/quakeanalysis/EarthquakeCollection.java
 /Users/jamesgaray/Documents/Computer Science/Classes/Java Programming Principles of Software Design/Quake-Analysis/quakeanalysis/src/main/java/com/jmg0/quakeanalysis/EarthquakeJSONStringArranger.java
+/Users/jamesgaray/Documents/Computer Science/Classes/Java Programming Principles of Software Design/Quake-Analysis/quakeanalysis/src/main/java/com/jmg0/quakeanalysis/Location.java

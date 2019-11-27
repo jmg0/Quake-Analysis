@@ -40,13 +40,13 @@ public class App {
 //        Location l1 = new Location(-14.95, 167.2922);
 //        Location l2 = new Location(60.6497, -147.438);
 //
-//        System.out.println(l1.distance(l2));
-//        System.out.println(l2.distance(l1));
+//        System.out.println(l1.distanceTo(l2));
+//        System.out.println(l2.distanceTo(l1));
 //
 //        Location l3 = new Location(-17, 168);
 //        Location l4 = new Location(21, -157);
 //
-//        System.out.println(l3.distance(l4));
+//        System.out.println(l3.distanceTo(l4));
 
 
 

@@ -24,7 +24,7 @@ public class Location {
         return c;
     }
 
-    public double distance(Location location) {
+    public double distanceTo(Location location) {
         double c = haversineComputation(location);
         return c * earthMeanRadiusInKM;
     }
