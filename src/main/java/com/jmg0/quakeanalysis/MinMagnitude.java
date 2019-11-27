@@ -14,6 +14,6 @@ public class MinMagnitude implements Filter {
 
     @Override
     public String filterDescription() {
-        return "Returns earthquakes in list with magnitude greater than or equal to " + minMagnitude + ".";
+        return "Earthquakes with magnitude greater than or equal to " + minMagnitude;
     }
 }
