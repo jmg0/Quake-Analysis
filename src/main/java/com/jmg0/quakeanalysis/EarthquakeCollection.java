@@ -99,7 +99,7 @@ public class EarthquakeCollection {
     }
 
     /**
-     * Requires filter() has been called
+     * Requires filter() has been called and prints info for most recently filtered earthquake list
      */
     public void printFilteredEarthquakeInfo() {
         System.out.println("This " + getTitle() + "list has been filtered and contains " + filteredEarthquakeList.size() + " earthquakes.");
