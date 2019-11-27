@@ -32,6 +32,9 @@ public class App {
         EarthquakeCollection earthquakeCollection4 = EarthquakeCollectionBuilder2.build2("https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&minmagnitude=2&starttime=2019-01-01&endtime=2019-01-02");
         earthquakeCollection4.printEarthquakeInfo();
         System.out.println();
+
+        
+
 //
 //        MinMagnitude minMagFilter = new MinMagnitude(4.9);
 //        earthquakeCollection4.filter(minMagFilter);

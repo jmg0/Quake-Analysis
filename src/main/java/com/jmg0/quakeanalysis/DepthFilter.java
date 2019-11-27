@@ -10,10 +10,7 @@ public class DepthFilter implements Filter {
 
     @Override
     public boolean satisfies(Earthquake earthquake) {
-        if(earthquake.getDepth() >= minDepth && earthquake.getDepth() <= maxDepth) {
-            return true;
-        }
-        return false;
+        return earthquake.getDepth() >= minDepth && earthquake.getDepth() <= maxDepth;
     }
 
     @Override

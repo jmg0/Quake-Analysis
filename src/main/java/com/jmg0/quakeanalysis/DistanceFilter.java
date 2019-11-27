@@ -11,14 +11,11 @@ public class DistanceFilter implements Filter {
 
     @Override
     public boolean satisfies(Earthquake earthquake) {
-        if(location.distanceTo(earthquake.getLocation()) <= maxDistance) {
-            return true;
-        }
-        return false;
+        return location.distanceTo(earthquake.getLocation()) <= maxDistance;
     }
 
     @Override
     public String filterDescription() {
-        return null;
+        return "Earthquakes within " + maxDistance + " kilometers of location [" + location.getLatitude() + ", " + location.getLongitude() + "]";
     }
 }

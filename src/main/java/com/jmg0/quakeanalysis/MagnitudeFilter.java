@@ -10,11 +10,7 @@ public class MagnitudeFilter implements Filter {
 
     @Override
     public boolean satisfies(Earthquake earthquake) {
-        if(earthquake.getMag() >= minMag && earthquake.getMag() <= maxMag) {
-            return true;
-        }
-
-        return false;
+        return earthquake.getMag() >= minMag && earthquake.getMag() <= maxMag;
     }
 
     @Override
