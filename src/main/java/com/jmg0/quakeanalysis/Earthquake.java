@@ -14,6 +14,7 @@ public class Earthquake {
     private long time;
     private String id;
     private String title;
+    private double[] coordinates;
     private double latitude, longitude, depth;
 
     public void setTitle(String title) {
@@ -34,6 +35,18 @@ public class Earthquake {
 
     public void setTime(long time) {
         this.time = time;
+    }
+
+    public void setCoordinates(double[] coordinates) {
+        this.coordinates = coordinates;
+
+        setLongitude(this.coordinates[0]);
+        setLatitude(this.coordinates[1]);
+        setDepth(this.coordinates[2]);
+    }
+
+    public double[] getCoordinates() {
+        return coordinates;
     }
 
     public String getTitle() {
@@ -98,17 +111,8 @@ public class Earthquake {
         this.title = (String) properties.get("title");
     }
 
-    @JsonProperty("geometry")
-    private void unpackGeometry(Map<String, Object> geometry) {
-        double[] coordinates = (double[]) geometry.get("coordinates");
-        
-        this.longitude = (double) coordinates[0];
-        this.latitude = (double) coordinates[1];
-        this.depth = (double) coordinates[2];
-    }
-
     public String quakeInfo() {
-        return (getTitle() + ": a " + getMag() + " magnitude earthquake occurred " + getDateFromTime() + " at " + getPlace() + ", coordinates[" + getLatitude() + ", " + getLongitude() + "]");
+        return (getTitle() + ": a " + getMag() + " magnitude earthquake occurred " + getDateFromTime() + " at " + getPlace() + ", coordinates[" + getLatitude() + ", " + getLongitude() + "]. Initial rupture approximately " + getDepth() + " kilometers below the surface.");
     }
 
 }
