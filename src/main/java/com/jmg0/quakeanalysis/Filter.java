@@ -13,4 +13,10 @@ public interface Filter {
      * @return
      */
     public String filterDescription();
+
+    /**
+     * Returns Filter name
+     * @return
+     */
+    public String getName();
 }

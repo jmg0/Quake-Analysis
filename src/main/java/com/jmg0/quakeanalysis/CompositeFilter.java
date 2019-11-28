@@ -27,4 +27,18 @@ public class CompositeFilter implements Filter {
     public String filterDescription() {
         return "Earthquakes that satisfy all filters combined in this composite filter";
     }
+
+    @Override
+    public String getName() {
+        StringBuilder name = new StringBuilder();
+        for(int i = 0; i < filters.size(); i++) {
+            if(i != filters.size() - 1) {
+                name.append(filters.get(i).getName()).append(", ");
+            }
+            else {
+                name.append(filters.get(i));
+            }
+        }
+        return name.toString();
+    }
 }
