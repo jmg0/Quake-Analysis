@@ -36,7 +36,7 @@ public class CompositeFilter implements Filter {
                 name.append(filters.get(i).getName()).append(", ");
             }
             else {
-                name.append(filters.get(i));
+                name.append(filters.get(i).getName());
             }
         }
         return name.toString();

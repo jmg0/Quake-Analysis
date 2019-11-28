@@ -35,10 +35,10 @@ public class App {
         System.out.println();
 
         CompositeFilter filter = new CompositeFilter();
-        filter.addFilter(new MinMagnitude(3.1));
-        filter.addFilter(new DistanceFilter(new Location(36.1314, -95.9372), 10000));
-        filter.addFilter(new PhraseFilter("Alaska"));
-        //filter.addFilter(new DepthFilter(30, 100));
+        filter.addFilter(new MinMagnitude(3.1, "min magnitude 3.1"));
+        filter.addFilter(new DistanceFilter(new Location(36.1314, -95.9372), 10000, "Distance 10,000km from Tulsa, OK"));
+        filter.addFilter(new PhraseFilter("Alaska", "in Alaska"));
+        //filter.addFilter(new DepthFilter(30, 100, "Depth 30-100km));
 
         ArrayList<Earthquake> filteredList = earthquakeCollection4.filter(filter);
         earthquakeCollection4.printFilteredEarthquakeInfo();

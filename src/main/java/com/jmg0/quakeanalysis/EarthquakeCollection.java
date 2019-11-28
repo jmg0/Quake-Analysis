@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Map;
 
 public class EarthquakeCollection {
-    private String title, url;
+    private String title, url, filterNames;
     private int numEarthquakes;
     private ArrayList<Earthquake> earthquakes;
     private ArrayList<Earthquake> filteredEarthquakeList;
@@ -80,6 +80,7 @@ public class EarthquakeCollection {
                 filteredEarthquakeList.add(e);
             }
         }
+        setFilterNames(filter.getName());
         return filteredEarthquakeList;
     }
 
@@ -102,9 +103,12 @@ public class EarthquakeCollection {
      * Requires filter() has been called and prints info for most recently filtered earthquake list
      */
     public void printFilteredEarthquakeInfo() {
-        System.out.println("This " + getTitle() + "list has been filtered and contains " + filteredEarthquakeList.size() + " earthquakes.");
+        System.out.println("This " + getTitle() + "list has been filtered and contains " + filteredEarthquakeList.size() + " earthquakes. Filters used: " + filterNames);
         printEarthquakes(filteredEarthquakeList);
     }
 
 
+    public void setFilterNames(String filterNames) {
+        this.filterNames = filterNames;
+    }
 }
