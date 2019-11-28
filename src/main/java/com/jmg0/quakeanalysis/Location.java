@@ -29,6 +29,10 @@ public class Location {
         return c * earthMeanRadiusInKM;
     }
 
+    public String printLocation() {
+        return "[" + latitude + ", " + longitude + "]";
+    }
+
     public double getLatitude() {
         return latitude;
     }

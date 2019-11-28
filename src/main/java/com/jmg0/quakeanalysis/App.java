@@ -1,5 +1,6 @@
 package com.jmg0.quakeanalysis;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -33,7 +34,19 @@ public class App {
         earthquakeCollection4.printEarthquakeInfo();
         System.out.println();
 
-        
+        CompositeFilter filter = new CompositeFilter();
+        filter.addFilter(new MinMagnitude(3.1));
+        filter.addFilter(new DistanceFilter(new Location(36.1314, -95.9372), 10000));
+        filter.addFilter(new PhraseFilter("Alaska"));
+        //filter.addFilter(new DepthFilter(30, 100));
+
+        ArrayList<Earthquake> filteredList = earthquakeCollection4.filter(filter);
+        earthquakeCollection4.printFilteredEarthquakeInfo();
+        System.out.println();
+
+        for (Earthquake e : filteredList) {
+            System.out.println(e.getLocation().printLocation() + " " + e.getLocation().distanceTo(new Location(36.1314, -95.9372)));
+        }
 
 //
 //        MinMagnitude minMagFilter = new MinMagnitude(4.9);
